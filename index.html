@@ -104,6 +104,27 @@
     }
     .mobile-nav.show { display: flex; }
 
+    /* Contact form */
+    form {
+      max-width: 500px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    input, textarea {
+      padding: 0.75rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #2563eb;
+    }
+
     /* Dark mode */
     body.dark { background: #111827; color: #e5e7eb; }
     body.dark header { background: #1f2937; }
@@ -114,6 +135,7 @@
     body.dark .btn:hover { background: #1d4ed8; }
     body.dark .card { background: #1f2937; color: #e5e7eb; }
     body.dark footer { background: #1f2937; border-color: #374151; }
+    body.dark input, body.dark textarea { background: #1f2937; color: #e5e7eb; border: 1px solid #374151; }
 
     /* Responsive */
     @media (max-width: 768px) {
@@ -188,18 +210,21 @@
   <!-- Contact -->
   <section id="contact" style="text-align:center;">
     <h2>Get In Touch</h2>
-    <p>Have a project in mind or just want to say hi? Reach out!</p>
-    <a href="mailto:developerstudios700@gmail.com" class="btn">Say Hello</a>
+    <p>Have a project in mind or just want to say hi? Send me a message!</p>
+    <form action="https://formspree.io/f/mgedkwgv" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>© <span id="year"></span> yer. All rights reserved.</p>
+    <p>© 2025 Developer Studios. All rights reserved.</p>
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
     const body = document.body;
     const toggleBtns = [document.getElementById('toggleTheme'), document.getElementById('toggleThemeMobile')];
     const menuBtn = document.getElementById('menuBtn');
